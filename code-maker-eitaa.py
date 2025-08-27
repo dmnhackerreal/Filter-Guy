@@ -96,8 +96,8 @@ for c in x:
 print(reset)
 time.sleep(1)
 print(f"{bold}{red}programing by DMNHACKER")
-print(f"{red}supports eitaa 6.4.14.0 version!   just for")
-print(f"{red}servers...............ON           just for channel.")
+print(f"{red}supports eitaa 6.6.10 version!")
+print(f"{red}servers...............ON")
 
 # Progress animation
 print(f"{blue}")
