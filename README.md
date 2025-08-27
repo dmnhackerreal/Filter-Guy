@@ -33,7 +33,7 @@
 ## برای ایتا:
 
 * `python code-maker-eitaa.py`
-## رای سروش پلاس:
+## برای سروش پلاس:
 
 * `python code-maker.py`
 
