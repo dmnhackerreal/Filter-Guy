@@ -26,11 +26,15 @@
 
 ۳. اجرای اسکریپت:
 برای اجرای هر اسکریپت، از دستور زیر در ترمینال یا Command Prompt استفاده کنید
+
 برای روبیکا:
+
 * `python code-maker-rubika.py`
 برای ایتا:
+
 * `python code-maker-eitaa.py`
 برای سروش پلاس:
+
 * `python code-maker.py`
 
 ## نحوه استفاده
