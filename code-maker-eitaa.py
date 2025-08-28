@@ -57,8 +57,8 @@ govxzarsh = [
 # With autoreset, there's no need to manually reset at the end of lines, but Fore.MAGENTA will be applied automatically.
 print(pink)
 x = f"""
-█▀▀ █▀█ █▀▄ █▀▀ ⃃ █▀▄▀█ ▄▀█ █▄▀ █▀▀ █▀█ ⃃ █▀▀ █ █░░ ▀█▀ █▀▀ █▀█ █ ⃃ █▀▀ █ ▀█▀ ▄▀█ ▄▀█
-█▄▄ █▄█ █▄▀ ██▄ ⃃ █░▀░█ █▀█ █░█ ██▄ █▀▄ ⃃ █▀░ █ █▄▄ ░█░ ██▄ █▀▄ █ ⃃ ██▄ █ ░█░ █▀█ █▀█ v1.1
+█▀▀ █▀█ █▀▄ █▀▀  █▀▄▀█ ▄▀█ █▄▀ █▀▀ █▀█  █▀▀ █ █░░ ▀█▀ █▀▀ █▀█ █  █▀▀ █ ▀█▀ ▄▀█ ▄▀█
+█▄▄ █▄█ █▄▀ ██▄  █░▀░█ █▀█ █░█ ██▄ █▀▄  █▀░ █ █▄▄ ░█░ ██▄ █▀▄ █  ██▄ █ ░█░ █▀█ █▀█ v1.1
 """
 for c in x:
     sys.stdout.write(c)
