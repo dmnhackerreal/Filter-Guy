@@ -3,7 +3,12 @@ import sys
 from subprocess import call
 from sys import platform
 import time
-from colorama import Fore, Style
+import datetime
+from colorama import Fore, init # Added init
+
+# Initializes colorama to support colors in various terminals (especially Windows).
+# autoreset=True automatically resets the color to the default after each print.
+init(autoreset=True)
 
 # This function clears the terminal screen for better display.
 def clear():
@@ -17,13 +22,17 @@ def clear():
     except OSError as e:
         print(f"Error clearing screen: {type(e).__name__}, {e}")
 
-# Define color codes for better readability
+# Define color codes using colorama for cross-platform support
 red = Fore.RED
 green = Fore.GREEN
-blue = Fore.CYAN  # Using CYAN for a distinct blue color
+blue = Fore.BLUE
 pink = Fore.MAGENTA
-bold = Style.BRIGHT
-reset = Style.RESET_ALL
+white = Fore.WHITE
+yellow = Fore.YELLOW
+light_green = Fore.LIGHTGREEN_EX
+light_blue = Fore.LIGHTBLUE_EX
+light_yellow = Fore.LIGHTYELLOW_EX
+# reset = Fore.RESET # With autoreset=True, this is often not strictly needed, but kept for reference.
 
 # List of strings for the generated message
 goxzarsh = [
@@ -36,6 +45,7 @@ goxzarsh = [
 ]
 
 # Print banner with colorama and a slight delay for dramatic effect
+# With autoreset=True, there's no need to manually reset at the end of lines; colors reset automatically.
 print(pink)
 x = f"""
 ⠀⠀⠀⠀⠀⢀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⣄⠀⠀⠀⠀⠀⠀⠀
@@ -66,8 +76,8 @@ x = f"""
 ⠀⠀⠀⢿⣶⣏⡟⣧⣉⠿⢛⠿⠯⣬⡿⠦⠷⠚⣖⢿⢷⢞⢋⣴⣷⣿⠿⠛⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠙⠿⣿⣟⣿⣯⠽⢯⠵⣤⣕⣭⣤⣾⠿⢿⠿⠟⠛⠋⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠈⠉⠉⠋⠛⠛⠛⠋⠋⠋⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-█▀▀ █▀█ █▀▄ █▀▀   █▀▄▀█ ▄▀█ █▄▀ █▀▀   █▀▀ █ █░░ ▀█▀ █▀▀ █▀█ █   █▀ █▀█ █░░ █░█ █▀
-█▄▄ █▄█ █▄▀ ██▄   █░▀░█ █▀█ █░█ ██▄   █▀░ █ █▄▄ ░█░ ██▄ █▀▄ █   ▄█ █▀▀ █▄▄ █▄█ ▄█ v1.1
+█▀▀ █▀█ █▀▄ █▀▀ ⃃ █▀▄▀█ ▄▀█ █▄▀ █▀▀ ⃃ █▀▀ █ █░░ ▀█▀ █▀▀ █▀█ █ ⃃ █▀ █▀█ █░░ █░█ █▀
+█▄▄ █▄█ █▄▀ ██▄ ⃃ █░▀░█ █▀█ █░█ ██▄ ⃃ █▀░ █ █▄▄ ░█░ ██▄ █▀▄ █ ⃃ ▄█ █▀▀ █▄▄ █▄█ ▄█ v1.1
 """
 for c in x:
     sys.stdout.write(c)
@@ -75,12 +85,12 @@ for c in x:
     time.sleep(0.0000001)
 
 # Display welcome messages
-print(reset)
+# The 'reset' is now redundant due to autoreset=True, but can be kept if desired for explicit resets.
 time.sleep(1)
-print(f"{bold}{red}programing by DMNHACKER")
-print(f"{red}supports soroush plus 7.2.0 version!")
-print(f"{red}servers.....ON")
-print(f"{blue}")
+print(f"{Fore.RED}Programming by DMNHACKER") # Directly using Fore.RED
+print(f"{Fore.RED}Supports Soroush Plus 7.2.0 version!") # Directly using Fore.RED
+print(f"{Fore.RED}Servers.....ON") # Directly using Fore.RED
+print(f"{Fore.BLUE}") # Directly using Fore.BLUE
 time.sleep(2.5)
 print("")
 
@@ -90,20 +100,18 @@ for i in progress:
     print(i)
     time.sleep(0.1)
 
-print(f"{bold}{red}installed!{reset}")
+print(f"{Fore.RED}Installed!") # Directly using Fore.RED
 time.sleep(3)
 print("")
 
 # Get user input and generate the link
 try:
-    idta3get = input(f'{blue}id target ro bedoon @ vared con >>> {reset}')
-    print(f"{blue}")
+    idta3get = input(f'{Fore.BLUE}Enter target ID without @ >>> ')
+    print(f"{Fore.BLUE}")
     print(f"{random.choice(goxzarsh)}https://splus.ir/{idta3get}")
-    print(f"{reset}")
 
     time.sleep(5)
-    print(f"{green}30 sayer 40 mostahjan{reset}")
+    print(f"{Fore.GREEN}30 general, 40 obscene")
     time.sleep(10.6)
 except Exception as e:
-    print(f"{red}An error occurred: {e}{reset}")
-
+    print(f"{Fore.RED}An error occurred: {e}")
