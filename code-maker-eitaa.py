@@ -3,7 +3,11 @@ import sys
 from subprocess import call
 from sys import platform
 import time
-from colorama import Fore, Style
+from colorama import Fore, Style, init
+
+# Initializes colorama to support colors in various terminals (especially Windows).
+# autoreset=True automatically resets the color to the default after each print.
+init(autoreset=True)
 
 # This function clears the terminal screen for better display.
 def clear():
@@ -23,7 +27,7 @@ green = Fore.GREEN
 blue = Fore.CYAN  # Using CYAN for a distinct blue color
 pink = Fore.MAGENTA
 bold = Style.BRIGHT
-reset = Style.RESET_ALL
+reset = Style.RESET_ALL # With autoreset, direct use of this is often not needed, but kept for clarity.
 
 # List of strings for the generated message
 govxzarsh = [
@@ -50,6 +54,7 @@ govxzarsh = [
 ]
 
 # Print banner with colorama and a slight delay for dramatic effect
+# With autoreset, there's no need to manually reset at the end of lines, but Fore.MAGENTA will be applied automatically.
 print(pink)
 x = f"""
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣤⣠⣤⣠⣄⣤⣠⣤⣠⣤⣠⣤⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -58,8 +63,8 @@ x = f"""
 ⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⡱⣷⢾⣖⣴⣭⣷⣿⣿⣿⣷⣿⣿⣿⣯⣛⢿⣯⣷⣫⣭⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣮⡌⣿⡆⣳⣿⣿⣿⣷⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⢏⣾⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣭⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣮⣧⣜⣿⡿⣿⣿⡇⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⢠⣾⣿⣛⣿⢮⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⣿⣼⣧⣿⣿⣧⠀⠀⠀⠀
-⠀⠀⠀⠀⣠⣿⣿⣾⣯⢡⡏⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣧⠀⠀⠀
-⠀⠀⣠⣾⣿⢟⡭⢊⣝⣹⣾⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣭⢿⡿⣿⣇⠀⠀
+⠀⠀⠀⠀⣠⣿⣿⣾⣯⢡⡏⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣧⠀⠀⠀
+⠀⠀⣠⣾⣿⢟⡭⢊⣝⣹⣾⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣭⢿⡿⣿⣇⠀⠀
 ⠀⣰⣿⣽⠗⣽⣲⣿⣖⣬⣉⣉⡹⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⣿⢁⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠓⡋⢉⣉⣉⡁⠊⠻⡻⣮⢻⡆⠀
 ⢠⣿⣿⡏⣼⡿⣟⣽⣿⣿⣿⣶⣿⣦⣙⠯⣿⣿⠿⢿⣿⣿⣿⣿⢁⣀⠸⠀⠀⠀⠀⠀⢛⠋⢀⣈⢻⡿⣿⣟⣛⡿⠟⢁⣠⣶⣯⣷⣿⣿⣿⣿⣷⣄⠙⡝⡞⣿⠀
 ⢸⣿⢻⢸⣿⣴⣿⣿⣿⣿⣿⣿⣿⢿⣿⣷⣦⣜⣯⣛⣹⣞⣿⣙⡦⢿⣷⣄⡀⠀⠀⠀⠘⣾⣿⠟⣘⣭⣿⣷⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⣿⣿⣧⠘⣾⣽⡆
@@ -84,8 +89,8 @@ x = f"""
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢦⣀⣀⠀⠀⠀⠀⠀⢀⣀⣴⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠻⠿⠿⠛⠛⠋⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
-█▀▀ █▀█ █▀▄ █▀▀   █▀▄▀█ ▄▀█ █▄▀ █▀▀ █▀█   █▀▀ █ █░░ ▀█▀ █▀▀ █▀█ █   █▀▀ █ ▀█▀ ▄▀█ ▄▀█
-█▄▄ █▄█ █▄▀ ██▄   █░▀░█ █▀█ █░█ ██▄ █▀▄   █▀░ █ █▄▄ ░█░ ██▄ █▀▄ █   ██▄ █ ░█░ █▀█ █▀█ v1.1
+█▀▀ █▀█ █▀▄ █▀▀ ⃃ █▀▄▀█ ▄▀█ █▄▀ █▀▀ █▀█ ⃃ █▀▀ █ █░░ ▀█▀ █▀▀ █▀█ █ ⃃ █▀▀ █ ▀█▀ ▄▀█ ▄▀█
+█▄▄ █▄█ █▄▀ ██▄ ⃃ █░▀░█ █▀█ █░█ ██▄ █▀▄ ⃃ █▀░ █ █▄▄ ░█░ ██▄ █▀▄ █ ⃃ ██▄ █ ░█░ █▀█ █▀█ v1.1
 """
 for c in x:
     sys.stdout.write(c)
@@ -93,9 +98,10 @@ for c in x:
     time.sleep(0.0000001)
 
 # Display welcome messages
-print(reset)
+# With autoreset, there's no need for Style.RESET_ALL at the beginning of new lines.
+# 'reset' is now only used for explicit resets, but usually handled by autoreset.
 time.sleep(1)
-print(f"{bold}{red}programing by DMNHACKER")
+print(f"{bold}{red}programming by DMNHACKER")
 print(f"{red}supports eitaa 6.6.10 version!")
 print(f"{red}servers...............ON")
 
@@ -108,20 +114,17 @@ for i in progress:
     print(i)
     time.sleep(0.1)
 
-print(f"{bold}{red}installed!{reset}")
+print(f"{bold}{red}installed!")
 time.sleep(3)
 print("")
 
 # Get user input and generate the link
 try:
-    idta4get = input(f'{blue}id target channel ro bedoon @ vared con >>> {reset}')
-    print(f"{blue}")
+    idta4get = input(f'{blue}Enter target channel ID without @ >>> ') # autoreset handles reset
+    print(f"{blue}") # This line also changes to blue and then autoresets.
     print(f"{random.choice(govxzarsh)}https://eitaa.com/{idta4get}")
-    print(f"{reset}")
-
+    print(f"{green}30 general, 40 obscene") # autoreset handles reset
     time.sleep(5)
-    print(f"{green}30 sayer 40 mostahjan{reset}")
     time.sleep(10.6)
 except Exception as e:
-    print(f"{red}An error occurred: {e}{reset}")
-
+    print(f"{red}An error occurred: {e}") # autoreset handles reset
