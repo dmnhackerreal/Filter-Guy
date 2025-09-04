@@ -83,7 +83,7 @@ try:
     print(f"{random.choice(goxzarsh)}https://splus.ir/{idta3get}")
 
     time.sleep(5)
-    print(f"{Fore.GREEN}30 general, 40 obscene")
+    print(f"{Fore.GREEN}30 gozaresh, 40 mostahjan")
     time.sleep(10.6)
 except Exception as e:
     print(f"{Fore.RED}An error occurred: {e}")
