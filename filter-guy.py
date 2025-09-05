@@ -69,7 +69,7 @@ banner = f"""
 
 
 █▀▀ █ █░░ ▀█▀ █▀▀ █▀█   █▀▀ █░█ █▄█
-█▀░ █ █▄▄ ░█░ ██▄ █▀▄   █▄█ █▄█ ░█░ {white}v1.1
+█▀░ █ █▄▄ ░█░ ██▄ █▀▄   █▄█ █▄█ ░█░ {pink}v1.1
 {yellow}Programmed by DMNHACKER{red}
 """
 
@@ -80,19 +80,19 @@ def main_menu():
         print(f"{green}Programming by DMNHACKER") # This line was redundant due to the banner change, but kept as per user request context.
         print(f"{yellow}Filter-Guy v1.1\n") # This line was redundant due to the banner change, but kept as per user request context.
 
-        print(f"{blue}Please select one of the following options:{white}")
-        print(f"1. Code filter for Eitaa (code-maker-eitaa.py)")
-        print(f"2. Code filter for Rubika (code-maker-rubika.py)")
-        print(f"3. Code filter for Soroush Plus (code-maker-splus.py)")
-        print(f"4. Exit")
+        print(f"{blue}Please select one of the following options:{red}")
+        print(f"1. Code filter for Eitaa ")
+        print(f"2. Code filter for Rubika ")
+        print(f"3. Code filter for Soroush Plus")
+        print(f"4. Code filter for Bale")
+        print(f"5. Exit")
 
         try:
-            choice = input(f"\n{yellow}Enter option number >>> {white}")
+            choice = input(f"\n{yellow}Enter option number >>> {pink}")
             choice = int(choice)
 
             if choice == 1:
                 print(f"{green}Executing Eitaa filter...")
-                # Ensure the script is executable and in the same directory, or provide full path
                 run_script('code-maker-eitaa.py')
             elif choice == 2:
                 print(f"{green}Executing Rubika filter...")
@@ -101,11 +101,14 @@ def main_menu():
                 print(f"{green}Executing Soroush Plus filter...")
                 run_script('code-maker-splus.py')
             elif choice == 4:
+                print(f"{green}Executing Bale filter...")
+                run_script('code-maker-bale.py')
+            elif choice == 5:
                 print(f"{red}Exiting program. Goodbye!")
                 time.sleep(1)
                 sys.exit()
             else:
-                print(f"{red}Invalid input. Please enter a number between 1 and 4.")
+                print(f"{red}Invalid input. Please enter a number between 1 and 5.")
             time.sleep(2) # Give user time to read messages before clearing
         except ValueError:
             print(f"{red}Invalid input. Please enter a number.")
