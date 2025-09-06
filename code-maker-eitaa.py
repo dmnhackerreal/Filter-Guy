@@ -53,6 +53,28 @@ govxzarsh = [
     'This-channel-has-an-inappropriate-profile'
 ]
 
+flxtxr = [
+    'xxx.eitaa.com.32',
+    'fuck.irgc.ir.islam.eitta.com',
+    '1010.eitaa.hack',
+    'eitaa.phishing',
+    'eitaa.porn',
+    'eitaa.co/hack',
+    'eitaa.ir/fuckkhamenei',
+    'eitaa.ir/xxx/ddd',
+    'eitaa.com/11/32/4/craddd',
+    'eitaa.virus/2edf4',
+    'eitaa.ru/selldrugs',
+    'fuck.eitaa.com',
+    'eitaa.xxx/filtering',
+    'blodeitaa.com',
+    'eitaa.dxdx/main',
+    'web.eitaaa.com',
+    'web.eitaaaa.com',
+    'web.realeitaa.co',
+    'web.eitaa.xxx',
+    'web.eitaa.hack' ]
+
 # Print banner with colorama and a slight delay for dramatic effect
 # With autoreset, there's no need to manually reset at the end of lines, but Fore.MAGENTA will be applied automatically.
 print(pink)
@@ -88,10 +110,10 @@ print("")
 
 # Get user input and generate the link
 try:
-    idta4get = input(f'{blue}Enter target channel ID without @ >>> ') # autoreset handles reset
-    print(f"{blue}") # This line also changes to blue and then autoresets.
-    print(f"{random.choice(govxzarsh)}https://eitaa.com/{idta4get}")
-    print(f"{green}30 general, 40 obscene") # autoreset handles reset
+    idta4get = input(f'{blue}Enter target channel ID without @ >>> ') 
+    print(f"{blue}")
+    print(f"{random.choice(flxtxr)}{random.choice(govxzarsh)}https://eitaa.com/{idta4get}")
+    print(f"{green}30 general, 40 obscene") 
     time.sleep(5)
     time.sleep(10.6)
 except Exception as e:
