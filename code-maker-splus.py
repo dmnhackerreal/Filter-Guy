@@ -41,7 +41,7 @@ goxzarsh = [
     'Hello-this-person-has-an-inappropriate-profile',
     'This-account-promotes-nakedness-and-veiling',
     'This-account-is-a-spammer',
-    'This account-is-not-good-for-Soroush Plus-messenger-because-it-is-a-real-bully'
+    'This account-is-not-good-for-Soroush-Plus-messenger-because-it-is-a-real-bully'
 ]
 
 # Print banner with colorama and a slight delay for dramatic effect
