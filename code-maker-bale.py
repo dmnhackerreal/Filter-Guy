@@ -82,11 +82,6 @@ bugz = [
 ]
 
 
-
-
-
-
-
 # Print banner with colorama and a slight delay for dramatic effect
 # With autoreset=True, there's no need to manually reset at the end of lines; colors reset automatically.
 print(red)
