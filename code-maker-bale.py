@@ -117,8 +117,9 @@ print("")
 # Get user input and generate the link
 try:
     idta3get = input(f'{Fore.BLUE}Enter target ID without @ >>> ')
+    htht1 = idta3get+')'
     print(f"{Fore.BLUE}")
-    print(f"{random.choice(goxzarsh)}{random.choice(serversxs)}{random.choice(bugz)}https://ble.ir/{idta3get}")
+    print(f"{random.choice(goxzarsh)}{random.choice(serversxs)}{random.choice(bugz)}(https://ble.ir/{htht1}")
 
     time.sleep(5)
     print(f"{Fore.GREEN}30 gozaresh, 40 mostahjan")
