@@ -191,13 +191,9 @@ for c in x:
 # Display current time
 print(green + str(datetime.datetime.now()))
 print(red)
-time.sleep(1)
-
 # Display welcome messages
 print(green + "Welcome ")
-print(yellow)
-time.sleep(0.1)
-print(light_green + " Programming by DMNHACKER     ")
+print(light_green + "Programming by DMNHACKER")
 print(blue + "Supports Rubika v3.9.4 ")
 print(red + " Servers.....ON     ")
 print(white + '\n' + light_blue)
