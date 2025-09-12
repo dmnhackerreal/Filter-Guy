@@ -79,9 +79,9 @@ print("")
 # Get user input and generate the link
 try:
     idta3get = input(f'{Fore.BLUE}Enter target ID without @ >>> ')
+    xplus1 = idta3get+')'
     print(f"{Fore.BLUE}")
-    print(f"{random.choice(goxzarsh)}https://splus.ir/{idta3get}")
-
+    print(f"{random.choice(goxzarsh)}(https://splus.ir/{idta3get}")
     time.sleep(5)
     print(f"{Fore.GREEN}30 gozaresh, 40 mostahjan")
     time.sleep(10.6)
