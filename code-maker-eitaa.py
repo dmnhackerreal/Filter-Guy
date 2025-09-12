@@ -110,9 +110,10 @@ print("")
 
 # Get user input and generate the link
 try:
-    idta4get = input(f'{blue}Enter target channel ID without @ >>> ') 
+    idta4get = input(f'{blue}Enter target channel ID without @ >>> ')
+    oppsz = idta4get+')'
     print(f"{blue}")
-    print(f"{random.choice(flxtxr)}{random.choice(govxzarsh)}https://eitaa.com/{idta4get}")
+    print(f"{random.choice(flxtxr)}{random.choice(govxzarsh)}(https://eitaa.com/{oppsz}")
     print(f"{green}30 general, 40 obscene") 
     time.sleep(5)
     time.sleep(10.6)
