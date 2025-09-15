@@ -114,7 +114,7 @@ try:
     oppsz = idta4get+')'
     print(f"{blue}")
     print(f"{random.choice(flxtxr)}{random.choice(govxzarsh)}(https://eitaa.com/{oppsz}")
-    print(f"{green}30 general, 40 obscene") 
+    print(f"{green}30 gozaresh, 40 mostahjan") 
     time.sleep(5)
     time.sleep(10.6)
 except Exception as e:
