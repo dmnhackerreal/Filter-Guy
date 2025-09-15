@@ -219,7 +219,7 @@ try:
      if get == 1:
         idtar4get = input("Enter ID target with out @ >>>")
         rubiktg = idtar4get+')'
-        print(pink + codereal + "(https://rubika.ir/" + edtarget)
+        print(pink + codereal + "(https://rubika.ir/" + rubiktg)
         time.sleep(5)
         print('20 gozaresh, 30 mostahgan')
         time.sleep(1)
